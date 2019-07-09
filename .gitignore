@@ -5,8 +5,11 @@
 ## Build generated
 build/
 DerivedData/
+node_modules/
 
 ## Various settings
+*.xcuserstate
+*.DS_Store
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -27,6 +30,11 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.gitignore
+
+# Unity
+
+Libraries/libiPhone-lib.a
 
 # CocoaPods
 #
@@ -34,10 +42,8 @@ xcuserdata/
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+Pods/
+Podfile.lock
 
 # Carthage
 #
@@ -55,7 +61,7 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
+fastlane/screenshots
 fastlane/test_output
 
 # Code Injection

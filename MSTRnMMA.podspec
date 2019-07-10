@@ -12,16 +12,16 @@ Pod::Spec.new do |spec|
   spec.source_files = "Sources/MSTRnMMA.h"
   spec.resources = "Sources/*.bundle"
   
-  spec.subspec 'Commmand' do |ss|
-    ss.source_files = 'Sources/Commmand.{h,m}'
+  spec.subspec "Commmand" do |ss|
+    ss.source_files = "Sources/Commmand/**/*"
   end
   
   spec.subspec "UI" do |ss|
-    ss.source_files = "Sources/UI.{h,m}"
+    ss.source_files = "Sources/UI/**/*"
   end
   
   spec.subspec "Manager" do |ss|
-    ss.source_files = "Sources/Manager.{h,m}"
+    ss.source_files = "Sources/Manager/**/*"
   end
   
   spec.dependency "React"

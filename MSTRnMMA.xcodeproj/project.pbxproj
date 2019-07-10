@@ -192,19 +192,10 @@
 		484E0A9F22CC58E0003246B5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				489809EB22D5E9AC00BE9C54 /* Manager */,
 				4813ED4622D499B8004C8E2C /* Commmand */,
 				484E0ACF22CC88F0003246B5 /* UI */,
 				484E0AA022CC58E0003246B5 /* MSTRnMMA.h */,
-				4817E2CC22CEE437001DA368 /* MMAManager.h */,
-				4817E2CD22CEE437001DA368 /* MMAManager.m */,
-				484E0AD822CC907B003246B5 /* MMABridgeManager.h */,
-				484E0AD922CC907B003246B5 /* MMABridgeManager.m */,
-				484E0ADC22CCACEA003246B5 /* MMAResponseManager.h */,
-				484E0ADD22CCACEA003246B5 /* MMAResponseManager.m */,
-				484E0AE022CCAD4A003246B5 /* MMAEmitEventManager.h */,
-				484E0AE122CCAD4A003246B5 /* MMAEmitEventManager.m */,
-				48FF1C9D22CDE65400AA3208 /* MMAAbility.h */,
-				48FF1C9E22CDE65400AA3208 /* MMAAbility.m */,
 				484E0AA122CC58E0003246B5 /* Info.plist */,
 			);
 			path = Sources;
@@ -244,6 +235,23 @@
 				484E0AD522CC89F0003246B5 /* MMAView.m */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		489809EB22D5E9AC00BE9C54 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				48FF1C9D22CDE65400AA3208 /* MMAAbility.h */,
+				48FF1C9E22CDE65400AA3208 /* MMAAbility.m */,
+				4817E2CC22CEE437001DA368 /* MMAManager.h */,
+				4817E2CD22CEE437001DA368 /* MMAManager.m */,
+				484E0AD822CC907B003246B5 /* MMABridgeManager.h */,
+				484E0AD922CC907B003246B5 /* MMABridgeManager.m */,
+				484E0ADC22CCACEA003246B5 /* MMAResponseManager.h */,
+				484E0ADD22CCACEA003246B5 /* MMAResponseManager.m */,
+				484E0AE022CCAD4A003246B5 /* MMAEmitEventManager.h */,
+				484E0AE122CCAD4A003246B5 /* MMAEmitEventManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		48DCC30322D3334600D656D1 /* MMACommand */ = {

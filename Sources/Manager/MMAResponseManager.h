@@ -12,8 +12,9 @@
 
 @class MMACommand;
 
+// MMA 和 IOS 消息 delegate
 @protocol MMAResponseManagerDelegate <NSObject>
-@required
+@optional
 
 /**
  收到RN的消息
@@ -33,8 +34,20 @@
 
 @end
 
+// MMA页面关闭delegate
+@protocol MMADismissViewControllerDelegate <NSObject>
+@required
+
+/**
+ 关闭MMA控制器
+ */
+- (void)dismissViewController;
+
+@end
+
 @interface MMAResponseManager : NSObject <RCTBridgeModule>
 @property (weak, nonatomic) id<MMAResponseManagerDelegate> delegate;
+@property (weak, nonatomic) id<MMADismissViewControllerDelegate> dismissDelegate;
 @end
 
 

@@ -9,6 +9,7 @@
 #import "MMAResponseManager.h"
 #import "MMAAbility.h"
 #import "MMAManager.h"
+#import "MMACloseRequestCommand.h"
 
 @implementation MMAResponseManager
 // 注册模块
@@ -38,42 +39,49 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_METHOD(responseMsgType:(NSString *)msgType responseData:(NSDictionary *)data)
 {
     NSLog(@"\n收到RN消息了\nmsgType = %@\nresponseData = %@\ncurrentThread = %@",msgType, data, [NSThread currentThread]);
-    MMACommand *command = [[MMAManager sharedInstance].ability commandWithData:data];
-    if (command && self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callbackId:)]) {
-            // send delegate
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate didReceiveCommand:command callbackId:nil];
-            });
-        }
-        else if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callback:)]) {
-            // send delegate
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate didReceiveCommand:command callback:nil];
-            });
-        }
-    }
+    [self responseMsgType:msgType responseData:data callback:nil];
 }
 
 RCT_EXPORT_METHOD(callbackResponseMsgType:(NSString *)msgType responseData:(NSDictionary *)data callback:(RCTResponseSenderBlock)callback)
 {
     NSLog(@"\n收到RN(回调)消息了\nmsgType = %@\nresponseData = %@\ncallback = %@\ncurrentThread = %@",msgType, data, callback, [NSThread currentThread]);
-    MMACommand *command = [[MMAManager sharedInstance].ability commandWithData:data];
-    if (command && self.delegate) {
-        if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callbackId:)]) {
-            // add callback
-            NSString *callbackId = [self.class callbackId];
-            [[MMAManager sharedInstance] addCallback:callback withCallbackId:callbackId];
+    [self responseMsgType:msgType responseData:data callback:callback];
+}
+
+- (void)responseMsgType:(NSString *)msgType responseData:(NSDictionary *)data callback:(RCTResponseSenderBlock)callback
+{
+    MMACommand *command = (MMACommand *)[[MMAManager sharedInstance].ability commandWithJson:data];
+    if (command) {
+        // 关闭MMA页面
+        if ([command.msgType isEqualToString:[MMACloseRequestCommand msgType]]) {
             // send delegate
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate didReceiveCommand:command callbackId:callbackId];
+                [self.dismissDelegate dismissViewController];
             });
-        }
-        else if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callback:)]) {
-            // send delegate
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.delegate didReceiveCommand:command callback:callback];
-            });
+        }else if (self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callbackId:)]) {
+                // 有回调
+                if (callback) {
+                    // add callback
+                    NSString *callbackId = [self.class callbackId];
+                    [[MMAManager sharedInstance] addCallback:callback withCallbackId:callbackId];
+                    // send delegate
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate didReceiveCommand:command callbackId:callbackId];
+                    });
+                }else {
+                    // send delegate
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.delegate didReceiveCommand:command callbackId:nil];
+                    });
+                }
+            }
+            else if ([self.delegate respondsToSelector:@selector(didReceiveCommand:callback:)]) {
+                // send delegate
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate didReceiveCommand:command callback:callback];
+                });
+            }
         }
     }
 }

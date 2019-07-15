@@ -32,6 +32,10 @@
 		484E0ADF22CCACEA003246B5 /* MMAResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 484E0ADD22CCACEA003246B5 /* MMAResponseManager.m */; };
 		484E0AE222CCAD4A003246B5 /* MMAEmitEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 484E0AE022CCAD4A003246B5 /* MMAEmitEventManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		484E0AE322CCAD4A003246B5 /* MMAEmitEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 484E0AE122CCAD4A003246B5 /* MMAEmitEventManager.m */; };
+		48B6DBAF22D714C1006C3E37 /* MMACloseRequestCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B6DBAD22D714C1006C3E37 /* MMACloseRequestCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48B6DBB022D714C1006C3E37 /* MMACloseRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B6DBAE22D714C1006C3E37 /* MMACloseRequestCommand.m */; };
+		48B6DBB322D71AB6006C3E37 /* MMACloseCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B6DBB122D71AB6006C3E37 /* MMACloseCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48B6DBB422D71AB6006C3E37 /* MMACloseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B6DBB222D71AB6006C3E37 /* MMACloseCommand.m */; };
 		48DCC30222D3309B00D656D1 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 48DCC30122D3309B00D656D1 /* Resource */; };
 		48DCC30A22D3334600D656D1 /* MMAQRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30522D3334600D656D1 /* MMAQRCommand.m */; };
 		48DCC30B22D3334600D656D1 /* MMASceneCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30622D3334600D656D1 /* MMASceneCommand.m */; };
@@ -102,6 +106,10 @@
 		484E0ADD22CCACEA003246B5 /* MMAResponseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAResponseManager.m; sourceTree = "<group>"; };
 		484E0AE022CCAD4A003246B5 /* MMAEmitEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMAEmitEventManager.h; sourceTree = "<group>"; };
 		484E0AE122CCAD4A003246B5 /* MMAEmitEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMAEmitEventManager.m; sourceTree = "<group>"; };
+		48B6DBAD22D714C1006C3E37 /* MMACloseRequestCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMACloseRequestCommand.h; sourceTree = "<group>"; };
+		48B6DBAE22D714C1006C3E37 /* MMACloseRequestCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMACloseRequestCommand.m; sourceTree = "<group>"; };
+		48B6DBB122D71AB6006C3E37 /* MMACloseCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMACloseCommand.h; sourceTree = "<group>"; };
+		48B6DBB222D71AB6006C3E37 /* MMACloseCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMACloseCommand.m; sourceTree = "<group>"; };
 		48DCC30122D3309B00D656D1 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
 		48DCC30422D3334600D656D1 /* MMAPhotoCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAPhotoCommand.h; sourceTree = "<group>"; };
 		48DCC30522D3334600D656D1 /* MMAQRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAQRCommand.m; sourceTree = "<group>"; };
@@ -163,8 +171,12 @@
 		4813ED4622D499B8004C8E2C /* Commmand */ = {
 			isa = PBXGroup;
 			children = (
+				48B6DBB122D71AB6006C3E37 /* MMACloseCommand.h */,
+				48B6DBB222D71AB6006C3E37 /* MMACloseCommand.m */,
 				48FF1C9922CDA23D00AA3208 /* MMACommand.h */,
 				48FF1C9A22CDA23D00AA3208 /* MMACommand.m */,
+				48B6DBAD22D714C1006C3E37 /* MMACloseRequestCommand.h */,
+				48B6DBAE22D714C1006C3E37 /* MMACloseRequestCommand.m */,
 			);
 			path = Commmand;
 			sourceTree = "<group>";
@@ -292,7 +304,9 @@
 				48FF1C9B22CDA23D00AA3208 /* MMACommand.h in Headers */,
 				48FF1C9F22CDE65400AA3208 /* MMAAbility.h in Headers */,
 				4817E2CE22CEE437001DA368 /* MMAManager.h in Headers */,
+				48B6DBAF22D714C1006C3E37 /* MMACloseRequestCommand.h in Headers */,
 				484E0AD622CC89F0003246B5 /* MMAView.h in Headers */,
+				48B6DBB322D71AB6006C3E37 /* MMACloseCommand.h in Headers */,
 				484E0ADE22CCACEA003246B5 /* MMAResponseManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B6DBB422D71AB6006C3E37 /* MMACloseCommand.m in Sources */,
 				484E0ADB22CC907B003246B5 /* MMABridgeManager.m in Sources */,
 				484E0AD322CC89D5003246B5 /* MMAViewController.m in Sources */,
 				484E0ADF22CCACEA003246B5 /* MMAResponseManager.m in Sources */,
@@ -473,6 +488,7 @@
 				48FF1C9C22CDA23D00AA3208 /* MMACommand.m in Sources */,
 				4817E2CF22CEE437001DA368 /* MMAManager.m in Sources */,
 				484E0AE322CCAD4A003246B5 /* MMAEmitEventManager.m in Sources */,
+				48B6DBB022D714C1006C3E37 /* MMACloseRequestCommand.m in Sources */,
 				484E0AD722CC89F0003246B5 /* MMAView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

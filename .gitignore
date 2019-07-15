@@ -30,7 +30,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
-*.gitignore
+.gitignore
 
 # Unity
 
@@ -44,6 +44,8 @@ Libraries/libiPhone-lib.a
 #
 Pods/
 Podfile.lock
+yarn.lock
+package-lock.json
 
 # Carthage
 #

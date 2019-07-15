@@ -29,9 +29,12 @@
 
 - (IBAction)pushRnVc:(UIButton *)sender
 {
-//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.118:8081/index.bundle?platform=ios"];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index.ios2.jsbundle" ofType:nil inDirectory:@"Resource"];
-    NSURL *jsCodeLocation = [NSURL fileURLWithPath:filePath];
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.118:8081/index.bundle?platform=ios"];
+//    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://192.168.0.167:8081/index.bundle?platform=ios"];
+    
+    
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index.ios2.jsbundle" ofType:nil inDirectory:@"Resource"];
+//    NSURL *jsCodeLocation = [NSURL fileURLWithPath:filePath];
     
     MSTRNViewController *vc = [[MSTRNViewController alloc] initWithBundleURL:jsCodeLocation moduleName:@"MMAJSBase" initialProperties:nil];
     [self.navigationController pushViewController:vc animated:YES];

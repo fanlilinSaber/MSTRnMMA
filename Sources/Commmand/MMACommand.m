@@ -14,17 +14,16 @@
 
 - (void)fillPropertiesWithData:(NSDictionary *)data
 {
-    self.msgType = data[@"msgType"];
-    self.params = data[@"params"];
-    self.msgId = data[@"msgId"];
+    [super fillPropertiesWithData:data];
+    self.serialNo = [data[@"serialNo"] intValue];
 }
 
 - (NSMutableDictionary *)fillDataWithProperties
 {
-    NSMutableDictionary *data = [NSMutableDictionary new];
-    data[@"msgType"] = [self.class msgType];
-    data[@"params"] = self.params;
-    data[@"msgId"] = self.msgId;
+    NSMutableDictionary *data = [super fillDataWithProperties];
+    if (self.serialNo != 0) {
+        data[@"serialNo"] = @(self.serialNo);
+    }
     return data;
 }
 

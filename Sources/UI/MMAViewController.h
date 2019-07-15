@@ -26,5 +26,7 @@
  */
 - (void)send:(MMACommand<MMACommandSendable> *)command;
 
+- (void)dismissViewController;
+
 @end
 

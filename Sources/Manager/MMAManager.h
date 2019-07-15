@@ -56,7 +56,15 @@
  @param command MMACommand
  @param callbackId 指定发送的 callbackId
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command callbackId:(NSString *)callbackId;
+- (void)send:(MMACommand<MMACommandSendable> *)command withCallbackId:(NSString *)callbackId;
+
+/**
+ 关闭MMA页面
+
+ @param flag 是否需要动画
+ @param complete RN(MMA)完成之后才会主动调用关闭，用于IOS主动调用关闭后需等待RN回调关闭才可以进行后续处理
+ */
+- (void)closeViewControllerAnimated:(BOOL)flag complete:(void (^)(void))complete;
 
 @end
 

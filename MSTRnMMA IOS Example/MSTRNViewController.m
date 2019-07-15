@@ -12,9 +12,11 @@
 #import "MMAPhotoCommand.h"
 #import "MMASceneCommand.h"
 #import "MSTScanViewController.h"
+#import "UIViewController+BackButtonHandler.h"
 
 @interface MSTRNViewController () <MMAResponseManagerDelegate>
-
+/*&* 消息是U3D处理的msgType */
+@property (nonatomic, copy) NSArray <NSString *>*supportedU3DEvents;
 @end
 
 @implementation MSTRNViewController
@@ -30,6 +32,12 @@
     [ability addCommand:[MMAPhotoCommand class]];
     [ability addCommand:[MMASceneCommand class]];
     [[MMAManager sharedInstance] config:ability];
+}
+
+- (BOOL)navigationShouldPopOnBackButton
+{
+    [[MMAManager sharedInstance] closeViewControllerAnimated:YES complete:nil];
+    return NO;
 }
 
 //- (void)didReceiveCommand:(MMACommand *)command callback:(void (^)(NSArray *))callback
@@ -76,23 +84,27 @@
     }
 }
 
+- (void)dispenseToU3DWithCommand:(MMACommand *)command
+{
+    
+}
+
 
 - (void)pushScanViewControllerWithCallbackId:(NSString *)callbackId
 {
     MSTScanViewController *vc = [MSTScanViewController new];
     vc.blockForScanResult = ^(NSString * _Nonnull result) {
         MMAQRCommand *commmand = [[MMAQRCommand alloc] initWithContent:result];
-        [[MMAManager sharedInstance] send:commmand callbackId:callbackId];
+        [[MMAManager sharedInstance] send:commmand withCallbackId:callbackId];
     };
     [self.navigationController pushViewController:vc animated:YES];
-//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)screenshotWithCallbackId:(NSString *)callbackId
 {
     UIImage *image = ScreenshotImage();
     MMAPhotoCommand *commmand = [[MMAPhotoCommand alloc] initWithSourceType:@"screen" image:image];
-    [[MMAManager sharedInstance] send:commmand callbackId:callbackId];
+    [[MMAManager sharedInstance] send:commmand withCallbackId:callbackId];
 }
 
 UIImage *ScreenshotImage()
@@ -122,6 +134,12 @@ UIImage *ScreenshotImage()
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+
+- (NSArray<NSString *> *)supportedU3DEvents
+{
+    return @[];
 }
 
 @end

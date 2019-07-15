@@ -8,52 +8,28 @@
 
 #import "MMAAbility.h"
 #import "MMACommand.h"
+#import "MMACloseCommand.h"
+#import "MMACloseRequestCommand.h"
 
 @interface MMAAbility ()
 /*&* 自定义协议的command class 类 */
-@property (copy, nonatomic) NSDictionary *commands;
+@property (copy, nonatomic, readwrite) NSDictionary *commands;
 @end
 
 @implementation MMAAbility
 
-#pragma mark - init Method
+@dynamic commands;
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        _commands = @{};
+        self.commands = @{};
+        self.commands = @{MMACloseRequestCommand.msgType: MMACloseRequestCommand.class,
+                          MMACloseCommand.msgType: MMACloseCommand.class
+                          };
     }
     return self;
-}
-
-- (MMACommand *)commandWithData:(NSDictionary *)data
-{
-    NSString *msgType = data[@"msgType"];
-    if (!msgType) {
-        return nil;
-    }else {
-        Class class = (Class)self.commands[msgType];
-        MMACommand<MMACommandReceivable> *command = [class new];
-        [command parseData:data];
-        return command;
-    }
-}
-
-- (void)addCommand:(Class)aClass withMsgType:(NSString *)msgType
-{
-    NSAssert([aClass isSubclassOfClass:MMACommand.class], @"Command Must Inherited From MMCommand");
-    NSAssert([aClass conformsToProtocol:@protocol(MMACommandReceivable)], @"Command Must Conform To MMACommandReceivable");
-    NSAssert(self.commands[msgType] == nil, @"Command Already Existed");
-    NSMutableDictionary *commands = [self.commands mutableCopy];
-    commands[msgType] = aClass;
-    self.commands = commands;
-}
-
-- (void)addCommand:(Class)aClass
-{
-    NSString *msgType = [aClass msgType];
-    [self addCommand:aClass withMsgType:msgType];
 }
 
 @end

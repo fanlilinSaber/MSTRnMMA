@@ -35,10 +35,15 @@
 
 @end
 
+@interface MMABridgeManager ()
+@property (nonatomic, copy) NSArray *aViewControllers;
+@end
+
 @implementation MMABridgeManager
 
 - (instancetype)initWithBundleURL:(NSURL *)bundleURL
 {
+    self.aViewControllers = @[];
     return [super initWithDelegate:[[[BridgeHandle alloc] init] initWithBundleURL:bundleURL] launchOptions:nil];
 }
 
@@ -50,6 +55,27 @@
 #else
 #endif
     [self.emitEventManager send:data];
+}
+
+#pragma mark - MMAViewController
+
+- (NSArray<NSValue *> *)viewControllers
+{
+    return self.aViewControllers;
+}
+
+- (void)addViewController:(MMAViewController *)viewController
+{
+    NSMutableArray *aViewControllers = [self.aViewControllers mutableCopy];
+    // 用NSValue来包装可以代替 weak 在数组中弱引用，避免内存泄露
+    NSValue *value = [NSValue valueWithNonretainedObject:viewController];
+    [aViewControllers addObject:value];
+    self.aViewControllers = aViewControllers;
+}
+
+- (void)dealloc
+{
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 }
 
 @end

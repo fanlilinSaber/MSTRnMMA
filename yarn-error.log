@@ -1,0 +1,85 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/fanlilin/.rvm/gems/ruby-2.4.0/bin:/Users/fanlilin/.rvm/gems/ruby-2.4.0@global/bin:/Users/fanlilin/.rvm/rubies/ruby-2.4.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Users/fanlilin/.rvm/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://192.168.0.248:4873/@babel%2fruntime/-/runtime-7.5.4.tgz: Request failed "500 Internal Server Error"
+      at ResponseError.ExtendableBuiltin (/usr/local/lib/node_modules/yarn/lib/cli.js:702:66)
+      at new ResponseError (/usr/local/lib/node_modules/yarn/lib/cli.js:808:124)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:66325:16)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/lib/node_modules/yarn/lib/cli.js:130274:10)
+      at emitOne (events.js:116:13)
+      at ClientRequest.emit (events.js:211:7)
+      at HTTPParser.parserOnIncomingClient (_http_client.js:551:21)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+
+npm manifest: 
+  {
+      "name": "MSTRnMMA",
+      "version": "0.0.1",
+      "private": true,
+      "scripts": {
+          "start": "node node_modules/react-native/local-cli/cli.js start",
+          "test": "jest",
+          "bundle-ios": "node node_modules/react-native/local-cli/cli.js bundle --entry-file index.js  --platform ios --dev false --bundle-output release_ios/main.jsbundle --assets-dest release_ios/"
+      },
+      "dependencies": {
+          "@ant-design/react-native": "^3.1.9",
+          "@types/react-native-sqlite-storage": "^1.0.2",
+          "add": "^2.0.6",
+          "babel-plugin-import": "^1.12.0",
+          "babel-plugin-module-resolver": "^3.2.0",
+          "dva-core": "^1.4.0",
+          "mma-base": "^1.0.51",
+          "moment": "^2.24.0",
+          "react": "16.8.3",
+          "react-native": "^0.59.9",
+          "react-native-map-linking": "^1.0.1",
+          "react-native-root-modal": "^3.1.1",
+          "react-native-root-toast": "^3.1.1",
+          "react-native-router-flux": "^4.0.6",
+          "react-native-sqlite-storage": "^1.0.0",
+          "react-native-typescript-transformer": "^1.2.12",
+          "react-navigation": "^3.11.0",
+          "react-redux": "^7.0.3",
+          "redux": "^4.0.1",
+          "redux-thunk": "^2.3.0",
+          "teaset": "^0.6.3",
+          "yarn": "^1.16.0"
+      },
+      "devDependencies": {
+          "@babel/core": "^7.4.5",
+          "@babel/runtime": "^7.4.5",
+          "@types/expo": "^32.0.13",
+          "@types/react": "^16.8.22",
+          "@types/react-native": "^0.57.65",
+          "@types/react-redux": "^7.1.0",
+          "babel-jest": "^24.8.0",
+          "jest": "^24.8.0",
+          "metro-react-native-babel-preset": "^0.54.1",
+          "react-test-renderer": "16.8.3",
+          "typescript": "^3.5.2"
+      },
+      "jest": {
+          "preset": "react-native"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

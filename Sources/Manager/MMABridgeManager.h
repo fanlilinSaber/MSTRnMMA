@@ -10,7 +10,7 @@
 #import <React/RCTBridge.h>
 
 @protocol MMACommandSendable;
-@class MMACommand;
+@class MMACommand, MMAViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param command custom MMACommand
  */
 - (void)send:(MMACommand<MMACommandSendable> *)command;
+
+@end
+
+@interface RCTBridge (MMAViewController)
+
+- (NSArray <NSValue *>*)viewControllers;
+
+- (void)addViewController:(MMAViewController *)aViewController;
 
 @end
 

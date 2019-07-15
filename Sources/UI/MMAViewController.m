@@ -8,8 +8,10 @@
 
 #import "MMAViewController.h"
 #import "MMAView.h"
+#import "MMAResponseManager.h"
+#import "MMABridgeManager.h"
 
-@interface MMAViewController ()
+@interface MMAViewController () <MMADismissViewControllerDelegate>
 /*&* mainView */
 @property (nonatomic, strong) MMAView *mainView;
 @end
@@ -23,6 +25,8 @@
     self = [super init];
     if (self) {
         self.mainView = [[MMAView alloc] initWithBundleURL:bundleURL moduleName:moduleName initialProperties:initialProperties];
+        self.mainView.bridge.responseManager.dismissDelegate = self;
+        [self.mainView.bridge addViewController:self];
     }
     return self;
 }
@@ -52,6 +56,19 @@
 - (void)setResponseDelegate:(id<MMAResponseManagerDelegate>)responseDelegate
 {
     self.mainView.responseDelegate = responseDelegate;
+}
+
+#pragma mark - MMADismissViewControllerDelegate
+
+- (void)dismissViewController
+{
+    if (self.presentingViewController == nil &&
+        !self.isBeingDismissed &&
+        self.view.window) {
+        [self.navigationController popViewControllerAnimated:NO];
+    } else {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }
 }
 
 - (void)dealloc

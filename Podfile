@@ -4,6 +4,7 @@
 target 'MSTRnMMA' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  pod 'Pineapple', :subspecs => ['Command', 'Ability'], :git => 'git@git.oschina.net:i-focusing-app/Pineapple.git'
   # React Native
   pod 'React', :path => './node_modules/react-native', :subspecs => [
   'Core',
@@ -23,6 +24,8 @@ target 'MSTRnMMA' do
   'RCTCameraRoll',
   'RCTBlob'
   ]
+  pod 'react-native-sqlite-storage', :path => './node_modules/react-native-sqlite-storage'
+
   # 如果你的RN版本 >= 0.42.0，则加入下面这行
   pod 'yoga', :path => './node_modules/react-native/ReactCommon/yoga'
   
@@ -30,18 +33,9 @@ target 'MSTRnMMA' do
   pod 'DoubleConversion', :podspec => './node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => './node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => './node_modules/react-native/third-party-podspecs/Folly.podspec'
-  # 热修复
-  #pod 'react-native-update' , :path => './node_modules/react-native-update'
+
   
-  pod 'RNGestureHandler' , :podspec => './node_modules/react-native-gesture-handler/RNGestureHandler.podspec'
   
-  pod 'react-native-image-picker' , :path => './node_modules/react-native-image-picker'
-  
-  pod 'RNVectorIcons' , :podspec => './node_modules/react-native-vector-icons/RNVectorIcons.podspec'
-  
-  pod 'react-native-video' , :podspec => './node_modules/react-native-video/react-native-video.podspec'
-  
-  pod 'react-native-webview' , :podspec => './node_modules/react-native-webview/react-native-webview.podspec'
   # Pods for MSTRnMMA
 
 end

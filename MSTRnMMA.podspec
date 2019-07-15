@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "MSTRnMMA"
-  spec.version = "1.0.0"
+  spec.version = "1.0.1"
   spec.summary = "MMA LOAD"
   spec.homepage = "http://git.oschina.net/i-focusing-app/MSTRnMMA"
   spec.license = { type: 'MIT', file: 'LICENSE' }
@@ -25,4 +25,5 @@ Pod::Spec.new do |spec|
   end
   
   spec.dependency "React"
+  spec.dependency "Pineapple", :subspecs => ['Command', 'Ability'], :git => 'git@git.oschina.net:i-focusing-app/Pineapple.git'
 end

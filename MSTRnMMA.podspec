@@ -25,5 +25,4 @@ Pod::Spec.new do |spec|
   end
   
   spec.dependency "React"
-  spec.dependency "Pineapple", :subspecs => ['Command', 'Ability'], :git => 'git@git.oschina.net:i-focusing-app/Pineapple.git'
 end

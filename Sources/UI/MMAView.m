@@ -22,15 +22,16 @@
     return [super initWithBridge:[[MMAManager sharedInstance] bridgeFromBundleURL:bundleURL] moduleName:moduleName initialProperties:initialProperties];
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
-    UIView *view = [super hitTest:point withEvent:event];
-    // 与RN如果 nativeID != nil 自己不响应
-    if ([view isKindOfClass:[RCTView class]] && !view.nativeID) {
-        return nil;
-    }
-    return view;
-}
+// 取消判断，会影响RN页面的性能，
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+//{
+//    UIView *view = [super hitTest:point withEvent:event];
+//    // 与RN如果 nativeID != nil 自己不响应
+//    if ([view isKindOfClass:[RCTView class]] && !view.nativeID) {
+//        return nil;
+//    }
+//    return view;
+//}
 
 - (void)send:(MMACommand<MMACommandSendable> *)command
 {

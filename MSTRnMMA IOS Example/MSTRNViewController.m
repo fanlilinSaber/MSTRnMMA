@@ -9,8 +9,13 @@
 #import "MSTRNViewController.h"
 #import "MSTRnMMA.h"
 #import "MMAQRCommand.h"
+#import "MMAARCommand.h"
+#import "MMAMRCoopCommand.h"
+#import "MMAUserListCommand.h"
 #import "MMAPhotoCommand.h"
 #import "MMASceneCommand.h"
+#import "MMAEventCommand.h"
+#import "MMADataUpdateCommand.h"
 #import "MSTScanViewController.h"
 #import "UIViewController+BackButtonHandler.h"
 
@@ -62,25 +67,42 @@
 //    }
 //}
 
+#pragma mark - MMAResponseManagerDelegate protocol
+
 - (void)didReceiveCommand:(MMACommand *)command callbackId:(NSString *)callbackId
 {
     NSLog(@"\nmsgType = %@\nresponseData = %@",command.msgType, command.params);
-    // 二维码
-    if ([command.msgType isEqualToString:MMAQRCommand.msgType]) {
-        [self pushScanViewControllerWithCallbackId:callbackId];
-    }
-    // 拍照
-    else if ([command.msgType isEqualToString:MMAPhotoCommand.msgType]) {
-        [self screenshotWithCallbackId:callbackId];
-    }
-    // 加载场景
-    else if ([command.msgType isEqualToString:MMASceneCommand.msgType]) {
+    if ([self.supportedU3DEvents containsObject:command.msgType]) {
         
-    }
-    if (callbackId) {
-        NSLog(@"有回调");
+        // send to U3D
+
     }else {
-        NSLog(@"没有有回调");
+        // 二维码
+        if ([command.msgType isEqualToString:MMAQRCommand.msgType]) {
+            [self pushScanViewControllerWithCallbackId:callbackId];
+        }
+        // 拍照
+        else if ([command.msgType isEqualToString:MMAPhotoCommand.msgType]) {
+            [self photoWithSourceType:((MMAPhotoCommand *)command).sourceType preview:((MMAPhotoCommand *)command).preview callbackId:callbackId];
+        }
+        // AR扫描
+        else if ([command.msgType isEqualToString:MMAARCommand.msgType]) {
+            
+        }
+        // 获取用户列表
+        else if ([command.msgType isEqualToString:MMAUserListCommand.msgType]) {
+            [self userListWithCallbackId:callbackId];
+        }
+        // MR协作
+        else if ([command.msgType isEqualToString:MMAMRCoopCommand.msgType]) {
+            [self remoteAssistanceWithCallbackId:callbackId];
+        }
+        
+        if (callbackId) {
+            NSLog(@"有回调");
+        }else {
+            NSLog(@"没有有回调");
+        }
     }
 }
 
@@ -100,11 +122,21 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)screenshotWithCallbackId:(NSString *)callbackId
+- (void)photoWithSourceType:(NSString *)sourceType preview:(BOOL)preview callbackId:(NSString *)callbackId
 {
     UIImage *image = ScreenshotImage();
     MMAPhotoCommand *commmand = [[MMAPhotoCommand alloc] initWithSourceType:@"screen" image:image];
     [[MMAManager sharedInstance] send:commmand withCallbackId:callbackId];
+}
+
+- (void)userListWithCallbackId:(NSString *)callbackId
+{
+    
+}
+
+- (void)remoteAssistanceWithCallbackId:(NSString *)callbackId
+{
+    
 }
 
 UIImage *ScreenshotImage()
@@ -137,9 +169,11 @@ UIImage *ScreenshotImage()
 }
 
 
-- (NSArray<NSString *> *)supportedU3DEvents
+- (NSArray *)supportedU3DEvents
 {
-    return @[];
+    return @[MMASceneCommand.msgType,
+             MMAEventCommand.msgType,
+             MMADataUpdateCommand.msgType];
 }
 
 @end

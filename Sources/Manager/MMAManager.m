@@ -76,7 +76,7 @@
     return self;
 }
 
-- (void)send:(MMACommand<MMACommandSendable> *)command
+- (void)send:(PWCommand<MMACommandSendable> *)command
 {
     if (self.bridge == nil) {
         return;
@@ -91,7 +91,7 @@
     self.callbacks = callbacks;
 }
 
-- (void)send:(MMACommand<MMACommandSendable> *)command withCallbackId:(NSString *)callbackId
+- (void)send:(PWCommand<MMACommandSendable> *)command withCallbackId:(NSString *)callbackId
 {
     if (!callbackId) {
         [self send:command];

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol MMACommandSendable;
-@class MMAAbility, RCTBridge, MMACommand;
+@class MMAAbility, RCTBridge, PWCommand;
 
 @interface MMAManager : NSObject
 /*&* 解析和转换对应实体对象的关键 ability */
@@ -40,7 +40,7 @@
  
  @param command custom MMACommand
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command;
+- (void)send:(PWCommand<MMACommandSendable> *)command;
 
 /**
  注册回调block
@@ -56,7 +56,7 @@
  @param command MMACommand
  @param callbackId 指定发送的 callbackId
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command withCallbackId:(NSString *)callbackId;
+- (void)send:(PWCommand<MMACommandSendable> *)command withCallbackId:(NSString *)callbackId;
 
 /**
  关闭MMA页面

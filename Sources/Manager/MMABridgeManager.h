@@ -10,7 +10,7 @@
 #import <React/RCTBridge.h>
 
 @protocol MMACommandSendable;
-@class MMACommand, MMAViewController;
+@class PWCommand, MMAViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param command custom MMACommand
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command;
+- (void)send:(PWCommand<MMACommandSendable> *)command;
 
 @end
 

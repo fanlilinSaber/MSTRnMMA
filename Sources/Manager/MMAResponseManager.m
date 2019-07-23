@@ -50,7 +50,7 @@ RCT_EXPORT_METHOD(callbackResponseMsgType:(NSString *)msgType responseData:(NSDi
 
 - (void)responseMsgType:(NSString *)msgType responseData:(NSDictionary *)data callback:(RCTResponseSenderBlock)callback
 {
-    MMACommand *command = (MMACommand *)[[MMAManager sharedInstance].ability commandWithJson:data];
+    PWCommand *command = (PWCommand *)[[MMAManager sharedInstance].ability commandWithJson:data];
     if (command) {
         // 关闭MMA页面
         if ([command.msgType isEqualToString:[MMACloseRequestCommand msgType]]) {

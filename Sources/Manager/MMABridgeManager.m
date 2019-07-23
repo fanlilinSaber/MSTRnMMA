@@ -47,7 +47,7 @@
     return [super initWithDelegate:[[[BridgeHandle alloc] init] initWithBundleURL:bundleURL] launchOptions:nil];
 }
 
-- (void)send:(MMACommand<MMACommandSendable> *)command
+- (void)send:(PWCommand<MMACommandSendable> *)command
 {
     NSDictionary *data = command.fillDataWithProperties;
 #ifdef DEBUG

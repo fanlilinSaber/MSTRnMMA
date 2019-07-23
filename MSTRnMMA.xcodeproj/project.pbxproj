@@ -44,7 +44,6 @@
 		48B6DBB422D71AB6006C3E37 /* MMACloseCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B6DBB222D71AB6006C3E37 /* MMACloseCommand.m */; };
 		48DCC30222D3309B00D656D1 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 48DCC30122D3309B00D656D1 /* Resource */; };
 		48DCC30A22D3334600D656D1 /* MMAQRCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30522D3334600D656D1 /* MMAQRCommand.m */; };
-		48DCC30B22D3334600D656D1 /* MMASceneCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30622D3334600D656D1 /* MMASceneCommand.m */; };
 		48DCC30C22D3334600D656D1 /* MMAPhotoCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30722D3334600D656D1 /* MMAPhotoCommand.m */; };
 		48DCC30F22D333CA00D656D1 /* MSTRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DCC30E22D333CA00D656D1 /* MSTRNViewController.m */; };
 		48FF1C9B22CDA23D00AA3208 /* MMACommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 48FF1C9922CDA23D00AA3208 /* MMACommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -131,10 +130,8 @@
 		48DCC30122D3309B00D656D1 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
 		48DCC30422D3334600D656D1 /* MMAPhotoCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAPhotoCommand.h; sourceTree = "<group>"; };
 		48DCC30522D3334600D656D1 /* MMAQRCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAQRCommand.m; sourceTree = "<group>"; };
-		48DCC30622D3334600D656D1 /* MMASceneCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMASceneCommand.m; sourceTree = "<group>"; };
 		48DCC30722D3334600D656D1 /* MMAPhotoCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAPhotoCommand.m; sourceTree = "<group>"; };
 		48DCC30822D3334600D656D1 /* MMAQRCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAQRCommand.h; sourceTree = "<group>"; };
-		48DCC30922D3334600D656D1 /* MMASceneCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMASceneCommand.h; sourceTree = "<group>"; };
 		48DCC30D22D333CA00D656D1 /* MSTRNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSTRNViewController.h; sourceTree = "<group>"; };
 		48DCC30E22D333CA00D656D1 /* MSTRNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSTRNViewController.m; sourceTree = "<group>"; };
 		48FF1C9922CDA23D00AA3208 /* MMACommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMACommand.h; sourceTree = "<group>"; };
@@ -270,12 +267,12 @@
 		4868D9B822DDA054000F7AC5 /* MMA和M3S协议 */ = {
 			isa = PBXGroup;
 			children = (
-				4868D9B922DDA054000F7AC5 /* MMADataUpdateCommand.m */,
-				4868D9BA22DDA054000F7AC5 /* MMAEventCommand.m */,
-				4868D9BB22DDA054000F7AC5 /* MMASceneCommand.m */,
 				4868D9BC22DDA054000F7AC5 /* MMADataUpdateCommand.h */,
+				4868D9B922DDA054000F7AC5 /* MMADataUpdateCommand.m */,
 				4868D9BD22DDA054000F7AC5 /* MMAEventCommand.h */,
+				4868D9BA22DDA054000F7AC5 /* MMAEventCommand.m */,
 				4868D9BE22DDA054000F7AC5 /* MMASceneCommand.h */,
+				4868D9BB22DDA054000F7AC5 /* MMASceneCommand.m */,
 			);
 			path = "MMA和M3S协议";
 			sourceTree = "<group>";
@@ -305,8 +302,6 @@
 				48DCC30722D3334600D656D1 /* MMAPhotoCommand.m */,
 				48DCC30822D3334600D656D1 /* MMAQRCommand.h */,
 				48DCC30522D3334600D656D1 /* MMAQRCommand.m */,
-				48DCC30922D3334600D656D1 /* MMASceneCommand.h */,
-				48DCC30622D3334600D656D1 /* MMASceneCommand.m */,
 				4868D9C222DDA087000F7AC5 /* MMAARCommand.h */,
 				4868D9C322DDA087000F7AC5 /* MMAARCommand.m */,
 				4868D9C422DDA087000F7AC5 /* MMAMRCoopCommand.h */,
@@ -544,7 +539,6 @@
 				4868D9BF22DDA054000F7AC5 /* MMADataUpdateCommand.m in Sources */,
 				4868D9CA22DDA088000F7AC5 /* MMAMRCoopCommand.m in Sources */,
 				4868D9C922DDA088000F7AC5 /* MMAUserListCommand.m in Sources */,
-				48DCC30B22D3334600D656D1 /* MMASceneCommand.m in Sources */,
 				4868D9C822DDA088000F7AC5 /* MMAARCommand.m in Sources */,
 				4868D9C022DDA054000F7AC5 /* MMAEventCommand.m in Sources */,
 				48DCC30C22D3334600D656D1 /* MMAPhotoCommand.m in Sources */,

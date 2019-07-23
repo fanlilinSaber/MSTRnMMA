@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol MMACommandSendable, MMAResponseManagerDelegate;
-@class MMACommand;
+@class PWCommand;
 
 @interface MMAViewController : UIViewController
 
@@ -24,7 +24,7 @@
  
  @param command custom MMACommand
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command;
+- (void)send:(PWCommand<MMACommandSendable> *)command;
 
 - (void)dismissViewController;
 

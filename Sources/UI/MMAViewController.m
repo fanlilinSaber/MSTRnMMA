@@ -43,7 +43,7 @@
     self.view.backgroundColor = [UIColor clearColor];
 }
 
-- (void)send:(MMACommand<MMACommandSendable> *)command
+- (void)send:(PWCommand<MMACommandSendable> *)command
 {
     [self.mainView send:command];
 }

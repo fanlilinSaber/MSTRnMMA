@@ -11,7 +11,7 @@
 #import <React/RCTRootView.h>
 
 @protocol MMACommandSendable, MMAResponseManagerDelegate;
-@class MMACommand;
+@class PWCommand;
 
 @interface MMAView : RCTRootView
 
@@ -25,6 +25,6 @@
  
  @param command custom MMACommand
  */
-- (void)send:(MMACommand<MMACommandSendable> *)command;
+- (void)send:(PWCommand<MMACommandSendable> *)command;
 
 @end

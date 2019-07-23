@@ -33,7 +33,7 @@
 //    return view;
 //}
 
-- (void)send:(MMACommand<MMACommandSendable> *)command
+- (void)send:(PWCommand<MMACommandSendable> *)command
 {
     [(MMABridgeManager *)self.bridge send:command];
 }

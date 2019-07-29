@@ -120,8 +120,8 @@
         MMACloseCommand *command = [MMACloseCommand new];
         [self send:command];
     }else {
-        if (self.complete) {
-            self.complete();
+        if (complete) {
+            complete();
         }
     }
 }

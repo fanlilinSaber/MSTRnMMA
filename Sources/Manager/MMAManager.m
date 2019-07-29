@@ -112,12 +112,23 @@
 
 - (void)closeViewControllerAnimated:(BOOL)flag complete:(void (^)(void))complete
 {
-    self.complete = [complete copy];
-    // IOS调用关闭重新页面回调关闭代理
-    self.bridge.responseManager.dismissDelegate = self;
-    // send
-    MMACloseCommand *command = [MMACloseCommand new];
-    [self send:command];
+    if (self.bridge) {
+        self.complete = [complete copy];
+        // IOS调用关闭重新页面回调关闭代理
+        self.bridge.responseManager.dismissDelegate = self;
+        // send
+        MMACloseCommand *command = [MMACloseCommand new];
+        [self send:command];
+    }else {
+        if (self.complete) {
+            self.complete();
+        }
+    }
+}
+
+- (void)invalidate
+{
+    self.callbacks = nil;
 }
 
 #pragma mark - MMADismissViewControllerDelegate

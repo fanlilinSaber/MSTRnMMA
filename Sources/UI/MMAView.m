@@ -52,6 +52,7 @@
 {
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     [self.bridge invalidate];
+    [[MMAManager sharedInstance] invalidate];
 }
 
 @end

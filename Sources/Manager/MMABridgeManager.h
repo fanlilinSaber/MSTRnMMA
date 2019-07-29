@@ -12,8 +12,6 @@
 @protocol MMACommandSendable;
 @class PWCommand, MMAViewController;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface MMABridgeManager : RCTBridge
 
 - (instancetype)initWithBundleURL:(NSURL *)bundleURL;
@@ -35,4 +33,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END

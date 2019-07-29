@@ -62,9 +62,14 @@
  关闭MMA页面
 
  @param flag 是否需要动画
- @param complete RN(MMA)完成之后才会主动调用关闭，用于IOS主动调用关闭后需等待RN回调关闭才可以进行后续处理
+ @param complete RN(MMA)完成之后才会主动调用关闭，用于IOS主动调用关闭后需等待RN回调关闭才可以进行后续处理,如果未加载MMA页面会直接回调
  */
 - (void)closeViewControllerAnimated:(BOOL)flag complete:(void (^)(void))complete;
+
+/**
+ 释放未使用的 ’callback‘ 和 其他
+ */
+- (void)invalidate;
 
 @end
 

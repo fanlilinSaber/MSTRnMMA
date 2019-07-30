@@ -87,6 +87,9 @@
 - (void)addCallback:(id)callback withCallbackId:(NSString *)callbackId
 {
     NSMutableDictionary *callbacks = [self.callbacks mutableCopy];
+    if (!callbacks) {
+        callbacks = [NSMutableDictionary dictionary];
+    }
     callbacks[callbackId] = callback;
     self.callbacks = callbacks;
 }

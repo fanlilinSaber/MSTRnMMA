@@ -38,6 +38,7 @@
     command.msgId = self.msgId;
     command.enabledAck = self.enabledAck;
     command.serialNo = self.serialNo;
+    command.mmaId = self.mmaId;
     return command;
 }
 

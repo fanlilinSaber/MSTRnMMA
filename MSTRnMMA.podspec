@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "MSTRnMMA"
-  spec.version = "1.0.7"
+  spec.version = "1.0.8"
   spec.summary = "MMA LOAD"
   spec.homepage = "http://git.oschina.net/i-focusing-app/MSTRnMMA"
   spec.license = { type: 'MIT', file: 'LICENSE' }
